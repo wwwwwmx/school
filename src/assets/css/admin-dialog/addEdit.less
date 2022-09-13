@@ -1,0 +1,98 @@
+@import url("~assets/css/admin-dialog/admin-public.less");
+
+.dialog {
+  user-select: none;
+
+  /deep/ .el-dialog__header {
+    text-align: left;
+    padding-left: 29px;
+
+    .dialog-title {
+      font-size: 22px;
+      font-weight: 400;
+      color: #333333;
+      line-height: 24px;
+      white-space: nowrap;
+
+    }
+  }
+
+  .dialog-body {
+    padding-top: 19px;
+
+    .dialog-body-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 40px;
+
+      span {
+        font-size: 22px;
+        font-family: Source Han Sans CN;
+        font-weight: 400;
+        color: #333333;
+      }
+
+      .body-item-input {
+        width: 360px;
+        height: 40px;
+        position: relative;
+
+        .body-item-tip {
+          position: absolute;
+          left: 15px;
+          top: 46px;
+          font-size: 12px;
+          font-weight: 400;
+          color: #F45049;
+        }
+      }
+    }
+
+    .dialog-radio-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 40px;
+      font-size: 22px;
+
+      span {
+        font-family: Source Han Sans CN;
+        font-weight: 400;
+        color: #333333;
+      }
+
+      .radio-group {
+        display: flex;
+        align-items: center;
+        width: 360px;
+        height: 40px;
+      }
+
+      /deep/ .el-radio__label {
+        font-size: 20px;
+      }
+    }
+
+    .dialog-body-foot {
+      // 这里有一个css bug兄弟margin值合并，取最大值（这个就不解决了，给最大值好了）
+      margin: 50px 0 30px;
+      display: flex;
+      justify-content: center;
+
+      .dialog-foot-left {
+        .btn-120();
+        background-color: @btn-default;
+        color: #fff;
+      }
+
+      .dialog-foot-right {
+        .btn-120();
+        color: #282D30;
+        border: 1px solid #9BA2AB;
+        margin-left: 110px;
+      }
+    }
+  }
+
+}

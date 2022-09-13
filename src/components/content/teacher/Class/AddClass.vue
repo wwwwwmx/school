@@ -1,0 +1,263 @@
+<template>
+  <div class="dialog" >
+    <el-dialog top="270px" :visible.sync="isShow" :show-close="false" :close-on-click-modal="true" @close="onClose()" :model-append-to-body="false"
+      >
+      <div class="dialog-body">
+        <div class="dialog-title" slot="title">
+          <div class="title" >新增班级</div>
+          <div class="close-icon" @click="onClose()"><img
+              src="../../../../assets/img/admin/close-icon.png" alt=""></div>
+        </div>
+        <div class="body-border">
+          <div class="dialog-body-item">
+            <div class="item-left-one"><span style="color:#F64656">*</span>学级：</div>
+            <div class="body-item-inputone">
+              <el-input v-model="grade" ></el-input> 
+               <div class="img-pull" v-if="showTable" @click="showTable=false"><img src="../../../../assets/img/admin/pull-upicon.png" ></div>
+            <div class="img-pull" v-else @click="showTable=true"><img src="../../../../assets/img/admin/pull-downicon.png" ></div>
+              <ul v-show="showTable">
+              <li @click="changeState('twentyTwo')">2022年</li>
+              <li @click="changeState('twentyOne')">2021年</li>
+              <li @click="changeState('twenty')">2020年</li>
+              <li @click="changeState('eighTeen')">2018年</li>
+              <li @click="changeState('sevenTeen')">2017年</li>
+              <li @click="changeState('sixTeen')">2016年</li>
+              <li @click="changeState('fifTeen')">2015年</li>
+              <li @click="changeState('fourTeen')">2014年</li>
+              <li @click="changeState('threeTen')">2013年</li>
+              <li @click="changeState('twelve')">2012年</li>
+              <li @click="changeState('eleven')">2011年</li>
+              <li @click="changeState('ten')">2010年</li>
+            </ul> 
+            </div>
+          </div>
+          <div class="dialog-body-item">
+            <div class="item-left"><span style="color:#F64656">*</span>班级名称：</div>
+            <div class="body-item-input">
+              <el-input v-model="name" placeholder="请输入班级名称" resize="none" minlength="1" maxlength="10"    
+              :clearable="clearabled"
+          @input="clearabled=true;verifyText(1)"
+          @focus="clearabled=true"
+          @mouseleave.native="changeClear"></el-input>
+            </div>
+          </div>
+          <div :class="bodyItem"><div class="tip-style">{{ tip1 }}</div></div>
+          <div class="dialog-body-item">
+            <div class="item-left"><span style="color:#F64656">*</span>授课教师：</div>
+            <div class="body-item-input">
+              <el-input v-model="teacher" placeholder="请输入教师姓名" resize="none" minlength="1" maxlength="10" :clearable="clearabled"
+          @input="clearabled=true"
+          @focus="clearabled=true"
+          @mouseleave.native="changeClear"></el-input> 
+              <ul class="teacher-list" v-show="showEmpty">
+              <li v-for="item in teacherData" @click="changeName(item)">
+              <div v-if="showName">{{item.teacherName}}</div></li>
+            </ul> 
+            </div>
+          </div>
+          <div :class="bodyItem"><div class="tip-style" v-if="this.teacherData.length==0">该教师不存在，请先添加</div></div>
+        </div>
+        <div class="dialog-body-foot">
+           <el-button class="dialog-foot-right" @click="confirmbtn()" :disabled="this.showPage">确认</el-button>
+          <div class="dialog-foot-left" @click="onClose()">取消</div>
+        </div>
+      </div>
+    </el-dialog>
+  </div>
+</template>
+<script>
+
+export default {
+  name: "AddClass",
+  data() {
+    return {
+      clearabled:false,
+      // 是否显示弹出框
+      isShow: false,
+      // 添加的数据
+      bodyItem:"body-item",
+      name: '', 
+      teacher: '',
+      createdTime:'',
+      li:'card-container',
+      tip2:'',
+      tip1:'',
+      config:'',
+      //防止快速点击加一个定时器
+      timer: null,
+      file:'',
+      avatarName:'',
+      state:'',
+      grade:'2022年',
+      showTable:false,
+      showEmpty:false,
+      showName:false,
+      teacherData:[0],
+      stopMatch:true
+    };
+  },
+  computed: {
+   showPage() {
+      return (this.grade!=''&&this.name!=''&&this.teacher!=''&&this.tip1==''&&this.tip2=='')?false:true
+    },
+  },
+  watch:{
+    teacher:{
+    handler(val){
+      if(val==''){
+         this.showEmpty =false;
+         this.teacherData.length=1
+         this.stopMatch=true
+      }else{
+        if(this.stopMatch){
+        this.$newApi.teacher.allTeacher({'name':this.teacher,'account':null}).then(res=>
+       {if(res.data.length==0){
+          this.showEmpty=false;
+          this.showName=false
+          this.teacherData=[]
+        }
+        else{
+          if(this.teacher==res.data[0].teacherName){
+            this.changeName()
+          }
+          this.teacherData=res.data
+          this.showEmpty=true
+          this.showName=true
+        }}
+       )}
+      }
+      }
+  }},
+  methods: {
+    changeName(item){
+      this.showEmpty=false
+      this.teacher=item.teacherName;
+      this.showName=false
+      this.stopMatch=false 
+    },
+    changeClear(){
+      if(this.clearabled){
+        return
+      }
+      else{
+        this.clearabled=false
+      }
+    },
+    changeState(item){
+      switch(item){
+        case'twentyTwo':this.grade='2022年';this.showTable=false;break;
+        case'twentyOne':this.grade='2021年';this.showTable=false;break;
+        case'twenty':this.grade='2020年';this.showTable=false;break;
+        case'nineTeen':this.grade='2019年';this.showTable=false;break;
+        case'eighTeen':this.grade='2018年';this.showTable=false;break;
+        case'sevenTeen':this.grade='2017年';this.showTable=false;break;
+        case'sixTeen':this.grade='2016年';this.showTable=false;break;
+        case'fifTeen':this.grade='2015年';this.showTable=false;break;
+        case'fourTeen':this.grade='2014年';this.showTable=false;break;
+        case'threeTen':this.grade='2013年';this.showTable=false;break;
+        case'twelve':this.grade='2012年';this.showTable=false;break;
+        case'eleven':this.grade='2011年';this.showTable=false;break;
+        case'ten':this.grade='2010年';this.showTable=false;break;
+        default:return;
+      }
+    },
+    // 被关闭后的回调函数
+    onClose() {
+      this.isShow = false;
+      this.name = "";
+      this.grade = "";
+      this.teacher = "";
+      this.tip2='',
+      this.tip1='',
+      this.li='card-container'
+      this.grade='2022年',
+      this.stopMatch=true,
+      this.showTable=false
+    },
+    confirmbtn() {
+      if (this.timer != null) {
+        clearTimeout(this.timer);
+        this.timer = setTimeout(() => {
+          this.timer = null;
+        }, 1000);
+      } else {
+        this.timer = setTimeout(() => {
+          this.timer = null;
+        }, 1000);
+        this.btnConfirm();
+      }
+    },
+    verifyText(index) {
+      switch (index) {
+        case 1:
+          const reg1 = /^[\u4e00-\u9fa5a-zA-Z0-9]{1,10}/;
+          if (this.exceReg(reg1, this.name)||this.name=='') {
+            this.tip1 = "";
+          } else {
+            this.tip1 = "请输入1-10位的中英文和数字";
+          }
+          break;
+        case 2:
+          if(this.teacherData.length==0){
+            this.tip2 = "该教师不存在，请先添加";
+          } else{
+             this.showEmpty=false
+             this.tip2 = "";
+          }
+          break;
+      }
+    },
+    exceReg(reg, str) {
+      const result = reg.exec(str);
+      return result;
+    },
+    // 确认
+      async btnConfirm() {
+
+      const result = await this.$newApi.classes.addClasses({'teacher':this.teacher,
+          'name':this.name,
+          'grade':this.grade,});                                    
+      if (result.code !== 0) {
+        this.message = result.message;
+        this.$message({
+          type: "error",
+          message: this.message,
+          duration: 1500,
+        });
+        return;
+      }
+      else {
+        this.message = "班级信息新增成功";
+        this.$message.success(this.message);
+        this.state=1
+        this.$emit("onAddClasses", this.state); //数据通过onAddClass接口传出去
+        this.isShow = false;
+      }
+      },
+  },
+};
+</script>
+<style scoped>
+@import '../../../../public/dialog.css';
+.dialog >>> .el-dialog{
+   height:376px;
+}
+.dialog-body-item:first-child{
+ height:40px;
+}
+.item-left-one{
+  margin-left: 85px;
+  margin-top: 15px;
+
+}
+ul{
+  left:140px;
+  top:140px;
+}
+.dialog-body-item:first-child{
+    margin-bottom:30px;
+}
+.tip-style{
+  margin-left:35px;
+}
+</style>

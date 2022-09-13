@@ -1,0 +1,37 @@
+{
+  "id": "2499088",
+  "name": "公立校",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "11594383",
+      "name": "返回",
+      "font_class": "fanhui",
+      "unicode": "e6ad",
+      "unicode_decimal": 59053
+    },
+    {
+      "icon_id": "588343",
+      "name": "暂停",
+      "font_class": "zanting",
+      "unicode": "e6ca",
+      "unicode_decimal": 59082
+    },
+    {
+      "icon_id": "2733963",
+      "name": "结束",
+      "font_class": "jieshu",
+      "unicode": "e6ec",
+      "unicode_decimal": 59116
+    },
+    {
+      "icon_id": "13604156",
+      "name": "播放",
+      "font_class": "bofang",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    }
+  ]
+}

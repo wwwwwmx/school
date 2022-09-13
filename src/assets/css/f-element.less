@@ -1,0 +1,164 @@
+/**
+ * element-ui 组件样式重写文件
+ */
+.btnColor(@clolor) {
+  font-size: 18px;
+  color: @clolor;
+
+  &:hover {
+    span {
+      padding-bottom: 1px;
+      border-bottom: 1px solid @clolor;
+    }
+  }
+}
+
+// el-dialog 对话框样式重写
+.el-dialog {
+  // padding-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 8px 9px 1px rgba(0, 0, 0, 0.17);
+
+  .el-dialog__header {
+    text-align: center;
+  }
+
+  .el-dialog__body {
+    padding: 5px 15px 20px;
+  }
+}
+
+// 设置下拉选择弹出框样式
+.el-select-dropdown {
+  margin-top: 10px !important;
+
+  // 去除指向小箭头
+  .popper__arrow {
+    display: none;
+  }
+}
+
+// el-table 样式重写
+.el-table {
+
+  // 修改表格最底部边框颜色和高度
+  &::before {
+    height: 0;
+  }
+
+  // 表头样式
+  th {
+    text-align: center;
+    font-size: 20px;
+    color: #999999;
+    height: 60px;
+    font-weight: 400;
+    background: #eeeeee;
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.06);
+  }
+
+  // 表行样式
+  tr {
+    height: 50px !important;
+    font-size: 18px;
+
+    // 居中显示
+    td {
+      color: #333333;
+      text-align: center;
+
+      .operation {
+        font-size: 18px;
+      }
+    }
+  }
+
+  // [背景颜色] 表格鼠标悬停的样式
+  tbody tr:hover>td {
+    background-color: rgba(248, 181, 81, 0.1) !important;
+  }
+
+  // [背景,字体颜色] 表格列表无数据时样式
+  // .el-table__empty-block {
+  // }
+  // .el-table__empty-text {
+  // }
+  //操作按钮修改
+  .el-button--text {
+    &.operation {
+
+      &:hover {
+        span {
+          padding-bottom: 1px;
+          border-bottom: 1px solid #FF7F00;
+        }
+
+        // text-decoration: underline;
+      }
+    }
+
+    &.operation-blue {
+      .btnColor(#187FFF);
+    }
+
+    &.operation-green {
+      .btnColor(#3EBD8C);
+    }
+
+    &.operation-red {
+      .btnColor(#F45049);
+    }
+  }
+
+  //表格内容为空时的图片样式
+  .empty {
+    .body-emty-img {
+      width: 417px;
+      height: 371px;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 400;
+      color: #999999;
+      line-height: 55px;
+    }
+  }
+}
+
+
+// [el-input、el-textarea] 输入框与文本域样式重写
+// .el-input__inner,
+// .el-textarea__inner {
+//   // 设置半透明
+//   width: 310px;
+// }
+.el-input__inner,
+.el-textarea__inner {
+  &::placeholder {
+
+    font-family: Adobe Heiti Std;
+    font-size: 16px;
+    color: #9BA2AB;
+  }
+}
+
+//分页样式重写（当前选中背景色，权重不够，加important）
+.el-pagination {
+  .el-pager {
+    .number {
+      &:hover {
+        color: #5542C7 !important;
+      }
+
+      &.active {
+        background-color: #5542C7 !important;
+
+        &:hover {
+          color: #fff !important;
+
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,101 @@
+// 左右间距
+@left-right-spacing: 4vw;
+// 左侧卡片宽度
+@left-crad: 15vw;
+
+// 针对评测展示页面的样式
+.f-eval-result-page {
+  display: flex;
+  height: 100%;
+
+  .f-eval-l {
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
+    margin-left: 4vw;
+    top: 2vh;
+    width: @left-crad;
+    min-width: 220px;
+    border-radius: 4px;
+    background-color: #fff;
+    // overflow: hidden;
+  }
+  .f-eval-r {
+    padding: 2vh 4vw 1vh 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-y: overlay;
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+    .top-top {
+      height: 4vh;
+      background: white;
+      display: flex;
+      align-items: center;
+
+      padding-left: 32px;
+      .top-top-top {
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        /* width: 133px; */
+        width: 223px;
+        white-space: nowrap;
+        /* background: green; */
+        justify-content: space-between;
+        .brackets-left {
+          margin-right: 2px;
+          width: 9px;
+          height: 9px;
+          border-top: 2px solid black;
+          border-right: 2px solid black;
+          transform: rotate(45deg);
+        }
+        .brackets-right {
+          margin-right: 2px;
+          width: 9px;
+          height: 9px;
+          border-top: 2px solid #409eff;
+          border-right: 2px solid #409eff;
+          transform: rotate(45deg);
+        }
+
+        .fontcolor {
+          color: #409eff;
+        }
+        .student-manage:hover {
+          color: #409eff;
+        }
+        .manage-course:hover {
+          color: #409eff;
+        }
+      }
+      .top-top-top:hover {
+        cursor: pointer;
+      }
+    }
+    .r-title {
+      height: 40px;
+      line-height: 40px;
+      margin: 0.7vh 0;
+      text-align: center;
+      font-size: @t3;
+      font-weight: 600;
+      border-radius: 4px;
+      background-color: #fff;
+    }
+    .r-center {
+      flex: 1;
+      // 让底部显示更加清楚
+      // padding-bottom: 8px;
+      // background-color: #ffffff;
+      // 课堂概况
+      .center-class-situation {
+        background-color: #fff;
+        // box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 12%), 0 0 6px rgba(0, 0, 0, 4%);
+      }
+    }
+  }
+}

@@ -1,0 +1,219 @@
+/**
+ * 按钮样式封装文件
+ */
+
+ //label样式
+ .f-content-font{
+  width: 100px;
+  font-size: 20px;
+  white-space: nowrap;
+ }
+
+// * 按钮默认样式
+.f-btn {
+  width: 120px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 5px;
+  // 行间距 且 居中
+  // letter-spacing: 5px;
+  // text-indent: 5px;
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.2s linear;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &:active {
+    opacity: 0.65;
+  }
+}
+
+// * 彩色按钮样式封装
+// 0°
+.f-btn-color-0 {
+  background: linear-gradient(0deg, #4a5aea, #9354f2);
+}
+
+// 90°
+.f-btn-color-90 {
+  background: linear-gradient(90deg, #1b59e0, #e646f6);
+}
+
+// 270°
+.f-btn-color-270 {
+  background: linear-gradient(270deg, #1b59e0, #e646f6);
+}
+
+// * 
+
+/**
+ * @method 单色按钮样式封装
+ * f-btn-disable: [不可点击]
+ * f-btn-green: 背景绿、文字白
+ * f-btn-blue: 背景蓝、文字白
+ * f-btn-white-red: 背景白、文字红
+ * f-btn-white-black: 背景白、文字黑
+ * f-btn-white-gray: 背景白、文字灰
+ * f-btn-white-blue: 背景白、文字蓝
+ * f-btn-gray-white: 背景灰、文字白
+ * f-btn-gray-black: 背景灰、文字黑
+ * f-btn-blue-border: 背景透明、蓝色边框、文字白
+ * f-btn-red-border-red: 背景透明、红色边框、文字红
+ * f-btn-blue-border-black: 背景透明、蓝色边框、文字黑
+ * f-btn-blue-border-blue: 背景透明、蓝色边框、文字蓝
+ */
+.f-btn-disable {
+  cursor: not-allowed !important;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:active {
+    opacity: 1;
+  }
+}
+
+.f-btn-green {
+  background-color: @green-color;
+}
+.f-btn-yellow {
+  background: #FF7F00;
+border-radius: 4px;
+}
+.f-btn-unsign{
+  background: rgba(255, 127, 0, 0.3);
+border-radius: 4px;
+}
+//用于确认，保存，修改(不要在意类名，就是改着麻烦)
+.f-btn-blue {
+  background-color: #5542C7;
+}
+
+//按钮两个字的
+.f-btn-purple-two {
+  background-color: #5542C7;
+  width: 100px;
+  justify-content: space-evenly;
+}
+
+//按钮四个字的
+.f-btn-purple-four {
+  background-color: #5542C7;
+  width: 140px;
+  justify-content: space-evenly;
+
+}
+
+.f-btn-white-red {
+  color: @red-color;
+  border: 1px solid @border-color;
+  background-color: #fff;
+}
+
+//一般应用于取消，class类名我就不改了
+.f-btn-white-black {
+  color: #282D30;
+  border: 1px solid #9BA2AB;
+  background-color: #fff;
+}
+
+//用于重置按钮
+.f-btn-reset {
+  width: 100px;
+  background: #FFFFFF;
+  border: 1px solid #5542C7;
+  color: #5542C7;
+  font-size: 20px;
+  justify-content: space-evenly;
+}
+
+//查询icon的样式(这几个icon有好些都是一样的，但为了防止后续有人要再改，所以分开)
+.f-icon-query {
+  color: #fff;
+  font-size: 20px;
+}
+
+//重置icon的样式，图片不好弄，整个icon
+.f-icon-reset {
+  font-size: 20px;
+  color: #5542C7;
+
+}
+
+//新增icon的样式
+.f-icon-add {
+  font-size: 20px;
+  color: #fff;
+
+}
+
+//导入icon的样式
+.f-icon-import {
+  font-size: 20px;
+  color: #fff;
+
+}
+//有的再饿了么没找到，就用图片
+.f-icon-img{
+  width: 20px;
+  height: 20px;
+}
+.f-icon-del{
+  color: #E82037;
+  font-size: 26px;
+  margin-right: 6px;
+}
+.f-btn-white-gray {
+  color: @gray4-color;
+  border: 1px solid @gray2-color;
+  background-color: #fff;
+}
+
+.f-btn-white-blue {
+  color: @blue-color;
+  border: 1px solid @border-color;
+  background-color: #fff;
+}
+
+.f-btn-gray-white {
+  color: #fff;
+  background-color: @gray1-color;
+}
+
+.f-btn-gray-black {
+  color: #000;
+  background-color: @gray1-color;
+}
+
+.f-btn-brown-white {
+  border-top: 5px solid rgb(106, 58, 34);
+  color: #fff;
+  background-color: rgb(92, 116, 106);
+}
+
+.f-btn-blue-border {
+  border: 1px solid @blue-color;
+}
+
+.f-btn-red-border-red {
+  color: #D63D3D;
+  border: 1px solid #D63D3D;
+}
+
+.f-btn-blue-border-black {
+  color: #000;
+  border: 1px solid @blue-color;
+}
+
+.f-btn-blue-border-blue {
+  color: @blue-color;
+  border: 1px solid @blue-color;
+}

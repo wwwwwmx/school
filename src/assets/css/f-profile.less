@@ -1,0 +1,594 @@
+/**
+  * TODO: 针对此项目，个人全局样式
+  */
+.public-span() {
+  white-space: nowrap;
+  font-size: 22px;
+  font-weight: 400;
+  color: #333333;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// 用于替换原来的[flex]
+.f-flex {
+  flex: 1;
+}
+
+// 红色字体
+.red-color {
+  color: @red-color;
+}
+
+// 绿色字体
+.green-color {
+  color: #00a000;
+}
+
+// 黑色字体
+.blacck-color {
+  color: #000 !important;
+}
+
+// 图片占满div
+.f-img {
+  width: 100%;
+  height: 100%;
+}
+
+// 占80%
+.f-img-80 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 80%;
+  height: 80%;
+  margin: auto;
+}
+
+// 占60%
+.f-img-60 {
+  width: 60%;
+  height: 60%;
+}
+
+.f-img-70 {
+  width: 70%;
+  height: 70%;
+}
+
+// 错误提示信息
+.f-right-content {
+  height: 24px;
+
+  .f-right-tip {
+    padding-top: 5px;
+    text-align: left;
+    font-size: @t6;
+    color: @red-color;
+  }
+}
+
+// * 滚动条样式封装
+// 大小尺寸
+::-webkit-scrollbar {
+  width: 6px;
+  height: 8px;
+}
+
+// 小方块
+::-webkit-scrollbar-thumb {
+  background: @gray1-color;
+  border-radius: 5px;
+}
+
+// 轨道样式
+// ::-webkit-scrollbar-track {
+//   cursor: pointer !important;
+//   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+// }
+
+// 动画过渡 显示隐藏
+@keyframes fneedshow {
+  0% {
+    opacity: 0.1;
+  }
+
+  30% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  80% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fneedhidden {
+  30% {
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  80% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.f-show {
+  animation: fneedshow 0.4s forwards linear;
+}
+
+.f-no-show {
+  animation: fneedhidden 0.4s forwards linear;
+}
+
+.f-btn-right {
+  margin-right: 55px;
+}
+
+.f-left {
+  margin-left: 13px;
+}
+
+.f-btn-left {
+  margin-left: 40px;
+}
+
+// 布局使用 默认占满剩余高度
+.f-manage-index {
+  height: 100%;
+}
+
+// * 阴影效果添加
+// 浅
+.f-shallow-shadow-add {
+  // box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 12%), 0 0 6px rgba(0, 0, 0, 4%);
+  box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 12%), 0 0 6px rgba(0, 0, 0, 4%);
+}
+
+// 深
+.f-deep-shadow-add {
+  box-shadow: 0 0px 12px 6px rgba(18, 64, 94, 12%), 0 2px 8px 8px rgba(109, 135, 139, 10%);
+}
+
+// 确认框样式封装
+.f-dialog {
+  position: relative;
+
+  // 标题儿~
+  .f-title {
+    display: flex;
+    font-size: @t5;
+    .public-span();
+
+  }
+
+  // 主体部分
+  .f-body {
+    margin-top: 10px;
+    text-align: center;
+    font-size: @t4;
+
+    // 提示字体样式 
+    .f-tip {
+      font-weight: 600;
+    }
+
+    // 给新增课程、课件它们写的样式
+    .body-item {
+      display: flex;
+      padding: 0 40px;
+
+      // 左侧文字
+      .body-item-left {
+        margin-right: 10px;
+        margin-top: 10px;
+        .public-span();
+
+      }
+
+      // 右侧输入框
+      .body-item-right {
+        flex: 1;
+      }
+
+      .body-item-tip {
+        margin-top: 5px;
+        text-align: left;
+        font-size: @t6;
+        color: @red-color;
+        transition: all 0.3s linear;
+      }
+    }
+  }
+
+  // 尾部按钮
+  .f-foot {
+    margin-top: 45px;
+    padding-bottom: 25px;
+    display: flex;
+    justify-content: center;
+
+    // 这边的按钮单独样式设置
+    .f-btn {
+      width: 120px;
+      height: 40px;
+      font-size: 16px;
+    }
+
+    .f-btn-right {
+      margin-left: 110px;
+      margin-right: 0;
+    }
+  }
+
+  // 顶部边框条儿~
+  .f-border {
+    position: absolute;
+    left: 0;
+    // bottom: 0;
+    top: 0;
+    width: 100%;
+    height: 10px;
+    // background-color: @theme-color;
+    // background: linear-gradient(90deg, @theme-color, @blue-color);
+  }
+}
+
+// 导入对话框样式封装
+.f-import-dialog {
+  .f-choose {
+    height: 110px;
+    // padding: 0 15%;
+    padding-left: 71px;
+    color: #000;
+
+    // 选择文件
+    .f-choose-file {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+
+      .f-btn {
+        width: 95px;
+        letter-spacing: 1px;
+        border-color: rgb(119, 119, 119);
+        border-radius: 4px;
+      }
+    }
+
+    .f-choose-content {
+      padding-left: 20%;
+
+      // 下载模板文件
+      .f-choose-download {
+        margin: 20px 0 15px;
+        font-size: @t5;
+        color: rgb(24, 144, 255);
+        cursor: pointer;
+      }
+
+      // 进度条部分
+      .f-choose-process {
+        position: relative;
+        font-size: @t6;
+
+        // 图标
+        .icon {
+          position: absolute;
+          top: 2px;
+          right: 20px;
+          width: 12px;
+          height: 12px;
+          background: no-repeat center;
+          background-size: 100% 100%;
+        }
+
+        // 成功
+        .icon-success {
+          background-image: url(/static/public/icon-success.png);
+        }
+
+        // 失败
+        .icon-error {
+          background-image: url(/static/public/icon-error.png);
+        }
+      }
+    }
+
+    // 提示信息
+    .f-choose-tip {
+      margin-top: 10px;
+      font-size: @t7;
+      color: @red-color;
+      text-align: center;
+    }
+  }
+}
+
+// 课程-课件页面使用容器
+.f-course-page {
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  width: 1720px;
+  margin: 0 auto;
+  padding-top: 30px;
+
+  // 顶部区域
+  .f-page-top {
+    display: flex;
+    align-items: center;
+    height: 65px;
+    padding: 0 0 0 30px;
+    margin-bottom: 15px;
+    font-size: @t5;
+    border-radius: 4px;
+    background-color: #fff;
+
+    .top-input {
+      display: flex;
+      align-items: center;
+      margin-right: 73px;
+
+      .input-l {
+        font-size: 22px;
+        white-space: nowrap;
+      }
+
+      .input-r {
+        width: 32vw;
+      }
+    }
+
+    // .f-btn { width: 70px; }
+  }
+
+  // 主体区域
+  .f-page-main {
+    flex: 1;
+    // overflow-y: overlay;
+    overflow: auto;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 30px 40px 0 40px;
+
+    .f-main-card {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+
+      // 一个卡片
+      .f-card-item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        margin-left: 2%;
+        margin-bottom: 2.5vh;
+        width: 32%;
+        height: 22.5vh;
+        min-height: 200px;
+        border-radius: 6px;
+        box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 12%), 0 0 6px rgba(0, 0, 0, 4%);
+        overflow: hidden;
+        transition: all 0.3s linear;
+
+        &:hover {
+          box-shadow: 0 0px 12px 6px rgba(18, 64, 94, 12%), 0 2px 8px 8px rgba(109, 135, 139, 10%)
+        }
+
+        // 从1开始 每3个元素消除一次左边距
+        &:nth-child(3n+1) {
+          margin-left: 0;
+        }
+
+        // 当屏幕宽度小于1400像素时的媒体查询
+        @media screen and (max-width: 1400px) {
+          width: 49%;
+
+          // 之前写的从1开始 每3个删除左边距的 现在加回来
+          &:nth-child(3n+1) {
+            margin-left: 2%;
+          }
+
+          // 变成从1开始 每2个删除 哈哈哈嗝
+          &:nth-child(2n+1) {
+            margin-left: 0;
+          }
+
+          .card-item-public {
+            padding: 0 3vw !important;
+          }
+        }
+
+        // 小于800像素
+        @media screen and (max-width: 800px) {
+          width: 100%;
+          margin-left: 0 !important;
+
+          .card-item-public {
+            padding: 0 5vw !important;
+          }
+        }
+
+        // 公共
+        .card-item-public {
+          width: 100%;
+          padding: 0 1.5vw;
+        }
+
+        // 上
+        .card-item-top {
+          display: flex;
+          align-items: center;
+          height: 46%;
+
+          .top-img {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid #acd5ff;
+            user-select: none;
+          }
+
+          .top-text {
+            flex: 1;
+            // TODO: 如需要课程或课件图片展示的话需要将注释打开
+            // margin-left: 1vw;
+            font-size: @t4;
+            font-weight: 600;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+
+          .top-btn {
+            width: 80px;
+            height: 30px;
+            border-radius: 4px;
+          }
+        }
+
+        // 中
+        .card-item-center {
+          flex: 1;
+          position: relative;
+
+          .center-text {
+            width: fit-content;
+            max-width: 100%;
+            // margin-left: 60px;
+            color: @gray5-color;
+            font-size: @t6;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            cursor: pointer;
+
+            // 去除浏览器聚焦自带的黑色边框效果
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+
+        // 下
+        .card-item-bottom {
+          display: flex;
+          align-items: center;
+          text-align: center;
+          height: 24%;
+          padding: 0;
+          background: @gray-color;
+
+          // 按钮样式
+          .bottom-btn {
+            flex: 1;
+            color: #fff;
+            font-weight: 600;
+            font-size: 17px;
+            user-select: none;
+            cursor: pointer;
+            // &:hover {
+            //   opacity: 1;
+            // }
+          }
+
+          .f-btn-disable {
+            &:hover {
+              color: @gray5-color;
+            }
+          }
+
+          .bottom-line {
+            height: 50%;
+            width: 2px;
+            background: @gray2-color;
+          }
+        }
+
+        // 系统标识
+        .f-system-tip {
+          position: absolute;
+          top: 0;
+          right: 0;
+          padding: 4px 35px;
+          transform: translate(36px, 15px) rotate(45deg);
+          font-size: 14px;
+          font-style: normal;
+          font-weight: bold;
+          color: #fff;
+          background: linear-gradient(90deg, rgb(245, 174, 174, 0.1), #ec3131);
+          // box-shadow: -8px 0 6px 1px rgb(116 119 123 / 40%);
+        }
+      }
+    }
+
+    .f-list-emtpy {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 8vh;
+      font-size: 20px;
+      font-weight: 400;
+      color: #999999;
+      line-height: 55px;
+
+      .el-icon-loading {
+        margin-right: 10px;
+        font-size: 26px;
+      }
+    }
+
+    .f-test-item {
+      height: 100px;
+      margin-bottom: 20px;
+      background: @gray1-color;
+    }
+  }
+}
+
+// 开始上课-选择班级
+.f-center-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .f-middle-wrapper {
+    width: 55%;
+    height: 70%;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  }
+}
+
+//主体背景图片
+.f-wrap-back {
+  background-image: url("~assets/img/wrap-back.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

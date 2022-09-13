@@ -1,0 +1,37 @@
+{
+  "id": "2886896",
+  "name": "i-talking管理员端",
+  "font_family": "font_family",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "25304633",
+      "name": "45454-01",
+      "font_class": "a-45454-01",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "25293058",
+      "name": "信号强度",
+      "font_class": "xinhaoqiangdu",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "25293186",
+      "name": "电池电量",
+      "font_class": "dianchidianliang",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "25139176",
+      "name": "无网络 无信号",
+      "font_class": "shiliangzhinengduixiang11",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    }
+  ]
+}

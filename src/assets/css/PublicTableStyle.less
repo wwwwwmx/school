@@ -1,0 +1,165 @@
+@import url("~assets/css/admin-dialog/admin-public.less");
+
+.body {
+  width: 100%;
+  height: 100%;
+
+  .student {
+    width: 1720px;
+    // height: calc(100% - 130px);
+    // margin-bottom: 100px;
+    padding-top: 30px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    .student-fb {
+      background-color: #fff;
+      width: 100%;
+      height: 70px;
+      margin-bottom: 20px;
+      padding-left: 39px;
+
+      &.header-two {
+        margin-bottom: 10px;
+      }
+
+      border-radius: 8px;
+    }
+
+    .student-header {
+      background-color: #fff;
+      width: 100%;
+      height: 70px;
+      display: flex;
+      margin-bottom: 20px;
+      padding-left: 38px;
+      align-items: center;
+
+      &.header-two {
+        margin-bottom: 10px;
+      }
+
+      border-radius: 8px;
+
+      .student-header-header {
+        height: 20%;
+        color: @blue-color;
+      }
+
+      .student-header-content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+
+
+        .content-left {
+          display: flex;
+          align-items: center;
+          width: 90%;
+
+          .content {
+            width: 27%;
+            display: flex;
+            margin-right: 73px;
+            align-items: center;
+
+            .content-font {
+              font-size: 22px;
+              white-space: nowrap;
+            }
+          }
+
+        }
+
+        .content-right {
+          width: 20%;
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+        }
+      }
+
+    }
+
+    .student-handel {
+      height: 70px;
+      display: flex;
+      width: 273px;
+      justify-content: space-between;
+
+      .f-delete {
+        width: 67px;
+      }
+    }
+
+    .student-header-role {}
+
+    .student-body {
+      background-color: #fff;
+      width: 100%;
+      position: relative;
+      height: 671px;
+      &.admin-height{
+        height: 692px;
+      }
+      border-radius: 8px;
+      overflow: hidden;
+
+      .content-header {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        padding-left: 40px;
+        align-items: center;
+
+        .content-header-add {
+          .btn-140();
+          background-color: @btn-default;
+
+          img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+
+        .content-header-import {
+          .btn-140();
+          background-color: @btn-default;
+
+          img {
+            width: 20px;
+            height: 19px;
+          }
+        }
+
+        .content-header-delete {
+          .btn-140();
+
+          img {
+            width: 19px;
+            height: 20px;
+          }
+
+          &.available-del {
+            background-color: @btn-default;
+          }
+
+          &.disable-del {
+            background-color: @btn-grey;
+            cursor: initial;
+          }
+        }
+      }
+    }
+    .student-footer {
+      position: absolute;
+      bottom: 20px;
+      right: 40px;
+      &.admin-foot{
+        bottom: 10px;
+      }
+    }
+  }
+}

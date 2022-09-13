@@ -1,0 +1,56 @@
+@import url("~assets/css/admin-dialog/admin-public.less");
+.dialog {
+  user-select: none;
+
+  /deep/ .el-dialog__header {
+    text-align: left;
+    padding-left: 30px;
+
+    .dialog-title {
+      display: flex;
+      align-items: center;
+      font-size: 22px;
+      font-weight: 400;
+      color: #333333;
+      line-height: 24px;
+      white-space: nowrap;
+    }
+  }
+
+  .dialog-body {
+
+    .dialog-body-tip {
+      margin-top: 38px;
+      text-align: center;
+
+      span {
+        font-size: 22px;
+        font-weight: 400;
+        color: #333333;
+        display: block;
+        white-space: nowrap;
+      }
+
+      .delete-font {
+        margin-top: 20px;
+      }
+    }
+    .dialog-body-foot {
+      margin: 60px 0 30px ;
+      display: flex;
+      justify-content: center;
+      .dialog-foot-left {
+        .btn-120();
+        background-color: @btn-default;
+        color: #fff;
+      }
+
+      .dialog-foot-right {
+        .btn-120();
+        color: #282D30;
+        border: 1px solid #9BA2AB;
+        margin-left: 110px;
+      }
+    }
+  }
+}
